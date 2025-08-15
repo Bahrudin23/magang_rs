@@ -1,0 +1,297 @@
+/*=============================================
+=            Variables & Reset               =
+=============================================*/
+:root {
+  --brand-pink: #e91e63;
+  --brand-pink-dark: #c2185b;
+  --brand-orange: #ff5722;
+  --brand-orange-light: #ff8a50;
+  --sidebar-gradient-start: #f57c00;
+  --sidebar-gradient-end: #d81b60;
+  --sidebar-text: #000000;
+  --content-bg: #ff5722;
+  --card-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --text-default: #333;
+  --text-muted: #666;
+  --border-light: #e0e0e0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: var(--text-default);
+  background-color: var(--content-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*=============================================
+=               Header                       =
+=============================================*/
+.app-header {
+  background: var(--brand-pink);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px var(--card-shadow);
+}
+
+/*=============================================
+=             Main Layout                    =
+=============================================*/
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/*=============================================
+=               Sidebar                      =
+=============================================*/
+.app-sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, var(--sidebar-gradient-start), var(--sidebar-gradient-end));
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.user-panel {
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.user-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+.btn-toggle-menu {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 1rem;
+  background: #fff;
+  color: #333;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: none;
+  min-width: 140px;
+  z-index: 10;
+}
+
+.dropdown.open {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #f5f5f5;
+}
+
+.main-menu {
+  flex: 1;
+  padding-top: 1rem;
+}
+
+.main-menu a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  transition: background 0.2s;
+}
+
+.main-menu a:hover,
+.main-menu a.active {
+  background: rgba(255,255,255,0.1);
+}
+
+.main-menu a i {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  font-size: 0.8rem;
+  text-align: center;
+  background: rgba(0,0,0,0.1);
+  color: #fff;
+  line-height: 1.4;
+}
+
+/*=============================================
+=               Content Area                 =
+=============================================*/
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+/*=============================================
+=               Card & Tabs                  =
+=============================================*/
+.card {
+  background: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.tab {
+  flex: 1;
+  padding: 0.75rem;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tab.active {
+  background: var(--sidebar-gradient-end);
+  color: #fff;
+}
+
+.tab:not(.active):hover {
+  background: var(--brand-orange-light);
+  color: #fff;
+}
+
+/*=============================================
+=               DataTables                   =
+=============================================*/
+table.dataTable {
+  width: 100% !important;
+  border-collapse: collapse;
+}
+
+table.dataTable thead th {
+  background: var(--brand-pink);
+  color: #fff;
+  padding: 0.75rem;
+  border-bottom: 2px solid var(--brand-orange);
+}
+
+table.dataTable tbody td {
+  padding: 0.6rem 0.75rem;
+  border-top: 1px solid var(--border-light);
+}
+
+table.dataTable tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+table.dataTable tbody tr:hover {
+  background: #ffe5e5;
+}
+
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+/*=============================================
+=               Footer (global)              =
+=============================================*/
+body {
+  padding-bottom: 3rem;
+}
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  background: rgba(255,255,255,0.9);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+/*=============================================
+=               Responsive                    =
+=============================================*/
+@media (max-width: 768px) {
+  .app-body {
+    flex-direction: column;
+  }
+  .app-sidebar {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*=============================================
+=          Floating Action Button “+”         =
+=============================================*/
+.btn-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--brand-pink);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 100;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-fab:hover {
+  background: var(--brand-pink-dark);
+  transform: scale(1.05);
+}
