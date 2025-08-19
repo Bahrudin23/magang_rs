@@ -61,14 +61,14 @@ require __DIR__.'/partials/header.php';
         background: #0d6efd; color: #fff;
         box-shadow: 0 8px 16px rgba(0,0,0,.2);
         z-index: 1049;
-        display: grid;            /* center perfect */
-        place-items: center;      /* center perfect */
-        padding: 0;               /* override .btn padding */
+        display: grid;
+        place-items: center;
+        padding: 0;
         border: 0;
     }
     .fab-add svg{
         width: 28px; height: 28px;
-        display: block;           /* no baseline shift */
+        display: block;
     }
     .fab-add:hover{ transform: translateY(-1px); }
     </style>
